@@ -1,0 +1,30 @@
+{
+  "name": "mic-pitch",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "browser": "./src/index.js",
+  "exports": {
+    ".": {
+      "browser": "./src/index.js",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "audio",
+    "pitch",
+    "frequency",
+    "tuner",
+    "web-audio"
+  ],
+  "license": "MIT"
+}
