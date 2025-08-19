@@ -13,9 +13,9 @@ npm install mic-pitch
 
 ```html
 <script type="module">
-  import FrequencyTuner, { detectPitchYIN, computeRMS } from 'mic-pitch';
+  import MicPitch, { detectPitchYIN, computeRMS } from 'mic-pitch';
 
-  const tuner = new FrequencyTuner({
+  const tuner = new MicPitch({
     minFreq: 50,
     maxFreq: 2000,
     smoothing: 0.25,
@@ -42,9 +42,9 @@ Option A: import the file directly (module)
 <script type="module" src="/path/to/src/index.js"></script>
 <script type="module">
   // exposed on globalThis by the library:
-  const tuner = new window.FrequencyTuner();
+  const tuner = new window.MicPitch();
   // or:
-  // const tuner = new window.Frequency.Tuner();
+  // const tuner = new window.Mic.Pitch();
   tuner.onFrequency(f => console.log(f));
   tuner.start();
 </script>
@@ -53,8 +53,8 @@ Option A: import the file directly (module)
 Option B: via ESM CDN
 ```html
 <script type="module">
-  import FrequencyTuner from 'https://esm.sh/mic-pitch';
-  const tuner = new FrequencyTuner();
+  import MicPitch from 'https://esm.sh/mic-pitch';
+  const tuner = new MicPitch();
   tuner.start();
 </script>
 ```

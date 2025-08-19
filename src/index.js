@@ -1,6 +1,6 @@
 import { detectPitchYIN, computeRMS } from './pitch.js';
 
-export class FrequencyTuner {
+export class MicPitch {
   /**
    * @param {{
    *  minFreq?:number,
@@ -236,16 +236,16 @@ export class FrequencyTuner {
   if (typeof globalThis === 'undefined') return;
   const g = globalThis;
   try {
-    // Avoid overwriting existing globals
-    if (!g.FrequencyTuner) g.FrequencyTuner = FrequencyTuner;
+    // New globals aligned with package name
+    if (!g.MicPitch) g.MicPitch = MicPitch;
 
-    g.Frequency = g.Frequency || {};
-    if (!g.Frequency.Tuner) g.Frequency.Tuner = FrequencyTuner;
-    if (!g.Frequency.detectPitchYIN) g.Frequency.detectPitchYIN = detectPitchYIN;
-    if (!g.Frequency.computeRMS) g.Frequency.computeRMS = computeRMS;
+    g.Mic = g.Mic || {};
+    if (!g.Mic.Pitch) g.Mic.Pitch = MicPitch;
+    if (!g.Mic.detectPitchYIN) g.Mic.detectPitchYIN = detectPitchYIN;
+    if (!g.Mic.computeRMS) g.Mic.computeRMS = computeRMS;
   } catch {}
 })();
 
-// Named exports for tree-shaking; keep default export for compatibility
-export { FrequencyTuner, detectPitchYIN, computeRMS };
-export default FrequencyTuner;
+// Named exports for tree-shaking; keep default export
+export { detectPitchYIN, computeRMS };
+export default MicPitch;
